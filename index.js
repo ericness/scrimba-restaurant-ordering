@@ -2,6 +2,7 @@ import { menuArray } from "./data.js"
 
 const menuItemsEl = document.getElementById("menu-items")
 const orderEl = document.getElementById("order")
+const paymentModalEl = document.getElementById("modal-order")
 const order = new Map()
 
 document.addEventListener('click', function (e) {
@@ -20,6 +21,9 @@ document.addEventListener('click', function (e) {
         }
     }
     renderOrder(order)
+    if (e.target.id == "complete-order") {
+        paymentModalEl.style.setProperty('display', 'flex')
+    }
 })
 
 function buildMenu(menuItems) {
@@ -45,30 +49,35 @@ function buildMenu(menuItems) {
     }).join('')
 }
 
+
 function buildOrder(order) {
-    let result = '<h2 class="order-title">Your Order</h2>'
-    result += ' <div class="order-items">'
-    let totalCost = 0
+    let result = '<h2 class="order-title">Your order</h2>';
+    let totalCost = 0;
+    
     for (const [key, value] of order.entries()) {
-        const item = menuArray.find(menuItem => menuItem.id === parseInt(key))
-        const itemCost = value * item.price
-        totalCost += itemCost
+        const item = menuArray.find(menuItem => menuItem.id === parseInt(key));
+        const itemCost = value * item.price;
+        totalCost += itemCost;
         result += `
             <div class='order-item'>
-                <span class='order-item-name'>${item.name} (${value})</span>
-                <button type='submit' class='order-item-remove' data-remove='${key}'>remove</button>
+                <div>
+                    <span class='order-item-name'>${item.name} (${value})</span>
+                    <button type='button' class='order-item-remove' data-remove='${key}'>remove</button>
+                </div>
+                <span class='order-item-cost'>$${itemCost}</span>
             </div>
-            <span class='order-item-cost'>$${itemCost}</span>
-        `
+        `;
     }
+    
     result += `
-        </div>
-        <div class='total-cost'>
-            <p>Total Cost: $${totalCost}</p>
+        <div class='total-price'>
+            <span class='total-price-text'>Total price:</span>
+            <span class='total-price-amount'>$${totalCost}</span>
         </div> 
-        <button type='submit'>Complete Order</button>
-    `
-    return result
+        <button type='button' id='complete-order'>Complete order</button>
+    `;
+    
+    return result;
 }
 
 function renderMenu(menuItems) {

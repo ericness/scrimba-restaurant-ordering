@@ -113,41 +113,116 @@ header {
 }
 
 .order {
-    background-color: lightgreen;
     width: 508px;
-    display: flex;
+    padding: 0 20px;
+    /* display: flex;
     flex-direction: column;
     justify-content: start;
-    align-items: center;
+    align-items: center; */
 }
 
 .order-title {
+    text-align: center;
     font-size: 28px;
+    margin-bottom: 20px;
 }
 
 .order-items {
+    border-bottom: 1px solid black;
 }
 
 .order-item {
     display: flex;
-    justify-content: center;
-    align-items: space-between;
-    width: 100%;
-    margin-botton: 10px;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
 }
 
 .order-item-name {
-    margin-right: 10px;
+    font-size: 24px;
+}
+
+.order-item-remove {
+    color: #BBBBBB;
+    font-size: 12px;
+    font-family: Verdana, sans-serif;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.order-item-cost {
+    font-size: 20px;
+}
+
+
+.total-price {
+    display: flex;
+    justify-content: space-between;
+    border-top: 2px solid #393333;
+    margin-top: 20px;
+    padding-top: 20px;
+}
+
+.total-price-text, .total-price-amount {
+    font-size: 28px;
+}
+
+#complete-order {
+    width: 100%;
+    background-color: #16DB99;
+    color: white;
+    font-family: Verdana, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 15px 0;
+    border: none;
+    border-radius: 3px;
+    margin-top: 20px;
+    cursor: pointer;
 }
 
 .modal-order {
-    display: block;
+    background: white;
+    display: none;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
     position: fixed;
-    right: 0;
-    left: 0;
-    top: 0;
+    right: auto;
+    left: auto;
+    top: 200;
     bottom: 0;
-    margin: auto;
-    width: 524;
-    height: 542;
+    width: 400;
+    height: 450;
+    box-shadow: 0px 0px 50px 0px rgba(0,0,0,0.7);
+    font-family: Verdana, sans-serif;
+}
+
+#modal-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 30px 0;
+}
+
+.modal-input {
+    width: 90%;
+    margin: 10px 0;
+    padding: 15px 15px;
+}
+
+#complete-payment {
+    width: 90%;
+    background-color: #16DB99;
+    color: white;
+    font-family: Verdana, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 15px 0px;
+    border: none;
+    border-radius: 3px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
 }
