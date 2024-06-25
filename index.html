@@ -1,6 +1,6 @@
 <html>
-
 <head>
+    <title>Jimmy's Diner - The Best Burgers and Pizza in Town</title>
     <link rel="stylesheet" href="index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,10 +22,13 @@
     </div>
     <div class="modal-order" id="modal-order">
         <span id="modal-title">Enter Card Details</span>
-        <input type="text" name="fullName" placeholder="Enter your name" class="modal-input"/>
-        <input type="text" name="cardNumber" placeholder="Enter card number" class="modal-input"/>
-        <input type="password" name="cvv" placeholder="Enter CVV" class="modal-input"/>
+        <input type="text" name="fullName" placeholder="Enter your name" id="input-full-name" class="modal-input"/>
+        <input type="text" name="cardNumber" placeholder="Enter card number" id="input-card-number" class="modal-input"/>
+        <input type="password" name="cvv" placeholder="Enter CVV" id="input-cvv" class="modal-input"/>
         <button type="button" id="complete-payment">Pay</button>
+    </div>
+    <div class="thank-you" id="thank-you">
+        <span class="thank-you-message" id="thank-you-message"></span>
     </div>
     <script src="index.js" type="module"></script>
 </body>
